@@ -9,6 +9,6 @@ spec:
     - port: 514
       targetPort: 514
       protocol: TCP
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: "rsyslog"
