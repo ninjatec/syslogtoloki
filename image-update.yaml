@@ -19,7 +19,7 @@ spec:
   interval: 5m00s
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: rsyslog
   update:
     strategy: Setters
     path: ./
