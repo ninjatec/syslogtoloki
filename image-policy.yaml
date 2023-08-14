@@ -1,0 +1,22 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: rsyslog
+  namespace: flux-system
+spec:
+  # filterTags:
+  #   # GIT_SHA = "git rev-parse --short HEAD"
+  #   # ${GIT_BRANCH}-${GIT_SHA:0:7}-$(semversion)
+  #   pattern: '^master-[a-fA-F0-9]+-(?P<semversion>.*)'
+  #   extract: '$semversion'
+  filterTags:
+    # semversion must be 3 digits: https://github.com/Masterminds/semver#checking-version-constraints
+    #   When version 4.x.x.x comes out, this will need to be updated to v4.
+    extract: $semversion
+    pattern: ^(?P<semversion>\d+.\d+.\d+)(-.*)? # See examples: https://fluxcd.io/docs/components/image/imagepolicies/#examples
+  imageRepositoryRef:
+    name: rsyslog
+  policy:
+    semver:
+      range: '>=1.0.0'

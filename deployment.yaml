@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: rsyslog
-        image: ninjatec/rsyslog:latest
+        image: ninjatec/rsyslog:1.0.0  # {"$imagepolicy": "flux-system:rsyslog"}
         ports:
         - containerPort: 514
         resources:

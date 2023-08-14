@@ -1,0 +1,35 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: rsyslog
+  namespace: flux-system
+spec:
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: flux@ninjatec.co.uk
+        name: ninjatec-flux
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  interval: 5m00s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  update:
+    strategy: Setters
+    path: ./
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: rsyslog
+  namespace: flux-system
+spec:
+  image: ninjatec/rsyslog
+  interval: 5m0s
