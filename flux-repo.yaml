@@ -7,4 +7,4 @@ spec:
   interval: 1m
   ref:
     branch: main
-  url: https://github.com/ninjatec/syslogtoloki
+  url: ssh://git@github.com/ninjatec/syslogtoloki
