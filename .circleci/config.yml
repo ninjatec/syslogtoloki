@@ -1,0 +1,38 @@
+version: 2.1 
+
+executors: #The high-level container executor for your pipeline
+  docker_builder: #Label for the executor
+    machine:
+      image: ubuntu-2204:2023.07.2 #The high-level container we'll use. In this example this is the latest stable ubuntu image
+      resource_class: medium #Medium will be sufficient for most work unless it's resource intensive then you might need "large"
+
+jobs: #Where you will define the high level vars/executor for your pipeline
+  build-and-push-docker-image:
+    executor: docker_builder #This will need to match the defined exector above
+    parameters: #This is not required and can be hardcoded but you can have all your variables pre-defined here if you're going to repeat your code for various steps 
+    steps:
+      - checkout
+      - run: #For each "name" you see this will be a step in your pipeline and it's the user discretion how much you want to break this up. Best practice is each fundamental stage should be a new step.
+          name: Log Into Docker
+          command: |
+            docker login -u ${DOCKER_USER} -p  ${DOCKER_PASS}
+      - run:
+          name: Build Docker Image
+          command: |
+            /bin/make build
+      - run:
+          name: Push Image To docker Hub
+          command: |
+            /bin/make publish
+
+
+workflows:
+  build-and-push-docker-image: #This is confirming the job we're wanting to trigger work on
+    jobs:
+      - build-and-push-docker-image:
+          context:
+            - org-global
+          filters:
+            branches:
+              only:
+                - main #In this example we're only triggering on master but you could have different flows trigger by different branches. All up to the users discretion.  
