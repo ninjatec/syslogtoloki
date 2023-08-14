@@ -1,7 +1,7 @@
 
 FROM ubuntu
 RUN apt update && apt install rsyslog -y
-COPY --chown=root:root log_rotation.sh /srv/log_rotation.sh
+COPY --chmod=777 --chown=root:root log_rotation.sh /srv/log_rotation.sh
 RUN echo '$ModLoad imudp \n\
 $UDPServerRun 514 \n\
 $ModLoad imtcp \n\
