@@ -33,7 +33,7 @@ data:
                   job: varlogs
                   __path__: /var/log/{syslog,messages,*.log}
         clients:
-          - url: http://loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
+          - url: http://grafana-loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
 
     integrations:
       node_exporter:

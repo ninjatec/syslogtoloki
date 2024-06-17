@@ -53,7 +53,7 @@ spec:
           mountPath: "/etc/agent/agent.yaml"
           subPath: agent.yaml
       restartPolicy: Always
-      terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: 20
       volumes:
       - name: rsyslog-pv-claim
         persistentVolumeClaim:
