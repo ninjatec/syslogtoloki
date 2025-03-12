@@ -6,7 +6,9 @@ RUN echo '$ModLoad imudp \n\
 $UDPServerRun 514 \n\
 $ModLoad imtcp \n\
 $InputTCPServerRun 514 \n\
-$outchannel log_rotation,/var/log/log_rotation.log, 7500000,/srv/log_rotation.sh \n\
+$AllowedSender TCP, 127.0.0.1, 192.168.0.0/24, *.example.com \n\
+$AllowedSender UDP, 127.0.0.1, 192.168.0.0/24, *.example.com \n\
+$outchannel log_rotation,/var/log/rsyslog.log, 7500000,/srv/log_rotation.sh \n\
 *.* :omfile:$log_rotation \n\
 $template RemoteStore, "/var/log/rsyslog.log" \n\
 :source, !isequal, "localhost" -?RemoteStore \n\
