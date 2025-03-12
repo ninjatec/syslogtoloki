@@ -1,6 +1,6 @@
 
 FROM ubuntu
-RUN apt update && apt install rsyslog -y
+RUN apt update && && apt upgrade -y && apt install rsyslog -y
 COPY --chmod=777 --chown=root:root log_rotation.sh /srv/log_rotation.sh
 RUN echo '$ModLoad imudp \n\
 $ModLoad imtcp \n\
