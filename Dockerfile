@@ -12,7 +12,7 @@ $ModLoad imuxsock \n\
 $ModLoad imjournal \n\
 $outchannel log_rotation,/var/log/rsyslog.log, 7500000,/srv/log_rotation.sh \n\
 *.* :omfile:$log_rotation \n\
-$template RemoteStore, "/var/log/rsyslog.log" > /etc/rsyslog.conf
+$template RemoteStore, "/var/log/rsyslog.log" ' > /etc/rsyslog.conf
 #:source, !isequal, "localhost" -?RemoteStore 
 #:source, isequal, "last" ~ ' > /etc/rsyslog.conf
 ENTRYPOINT ["rsyslogd", "-n"]
