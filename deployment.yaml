@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: rsyslog
-        image: ninjatec/rsyslog:1.0.7 # {"$imagepolicy": "flux-system:rsyslog"}
+        image: ninjatec/rsyslog:1.0.5 # {"$imagepolicy": "flux-system:rsyslog"}
         ports:
         - name: udp
           containerPort: 514
