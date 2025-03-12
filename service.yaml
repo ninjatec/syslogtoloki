@@ -6,9 +6,14 @@ metadata:
   namespace: "monitoring"
 spec:
   ports:
-    - port: 514
+    - name: tcp
+      port: 514
       targetPort: 514
       protocol: TCP
+    - name: udp
+      port: 514
+      targetPort: 514
+      protocol: UDP
   type: ClusterIP
   selector:
     app: "rsyslog"

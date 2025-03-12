@@ -32,7 +32,12 @@ spec:
       - name: rsyslog
         image: ninjatec/rsyslog:1.0.4 # {"$imagepolicy": "flux-system:rsyslog"}
         ports:
-        - containerPort: 514
+        - name: udp
+          containerPort: 514
+          protocol: UDP
+        - name: tcp
+          containerPort: 514
+          protocol: TCP
         resources:
           limits:
             cpu: 400m
