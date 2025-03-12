@@ -9,10 +9,12 @@ spec:
     - name: tcp
       port: 514
       targetPort: 514
+      nodePort: 514
       protocol: TCP
     - name: udp
       port: 514
       targetPort: 514
+      nodePort: 514
       protocol: UDP
   type: NodePort
   externalTrafficPolicy: Local
