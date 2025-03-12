@@ -14,7 +14,7 @@ spec:
       port: 514
       targetPort: 514
       protocol: UDP
-  type: NodePort
+  type: LoadBalancer
   externalTrafficPolicy: Local
   selector:
     app: rsyslog
