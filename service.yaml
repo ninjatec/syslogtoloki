@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "rsyslog"
-  namespace: "monitoring"
+  name: rsyslog
+  namespace: monitoring
 spec:
   ports:
     - name: tcp
@@ -16,6 +16,6 @@ spec:
       protocol: UDP
   type: ClusterIP
   selector:
-    app: "rsyslog"
+    app: rsyslog
   externalIPs: 
     - 192.168.0.141
