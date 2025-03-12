@@ -18,5 +18,5 @@ spec:
   externalTrafficPolicy: Local
   selector:
     app: rsyslog
-  externalIPs: 
-    - 192.168.0.141
+  #externalIPs: 
+  #  - 192.168.0.141
