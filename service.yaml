@@ -12,3 +12,5 @@ spec:
   type: ClusterIP
   selector:
     app: "rsyslog"
+  externalIPs: 
+    - 192.168.0.141
