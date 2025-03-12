@@ -3,7 +3,7 @@ version: 2.1
 executors: #The high-level container executor for your pipeline
   docker_builder: #Label for the executor
     machine:
-      image: ubuntu-2204:2023.07.2 #The high-level container we'll use. In this example this is the latest stable ubuntu image
+      image: ubuntu-2204:2024.11.1 #The high-level container we'll use. In this example this is the latest stable ubuntu image
       resource_class: medium #Medium will be sufficient for most work unless it's resource intensive then you might need "large"
 
 jobs: #Where you will define the high level vars/executor for your pipeline
