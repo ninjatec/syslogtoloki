@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: rsyslog
-        image: ninjatec/rsyslog:1.0.5 # {"$imagepolicy": "flux-system:rsyslog"}
+        image: ninjatec/rsyslog:1.0.7 # {"$imagepolicy": "flux-system:rsyslog"}
         ports:
         - name: udp
           containerPort: 514
@@ -60,7 +60,6 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: k8snode1
       restartPolicy: Always
-      terminationGracePeriodSeconds: 20
       volumes:
       - name: rsyslog-pv-claim
         persistentVolumeClaim:
