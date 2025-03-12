@@ -1,1 +1,1 @@
-> /var/log/rsyslog.log
+> /mnt/rsyslog/rsyslog.log

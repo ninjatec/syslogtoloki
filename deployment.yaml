@@ -47,7 +47,7 @@ spec:
             cpu: 50m
         volumeMounts:
         - name: rsyslog-pv-claim
-          mountPath: "/var/log"
+          mountPath: "/mnt/rsyslog"
       - name: grafana-agent
         image: grafana/agent:latest
         resources:
