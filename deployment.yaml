@@ -60,8 +60,6 @@ spec:
         - name: config-volume
           mountPath: "/etc/agent/agent.yaml"
           subPath: agent.yaml
-        nodeSelector:
-          kubernetes.io/hostname: k8snode4
       restartPolicy: Always
       volumes:
       - name: rsyslog-pv-claim
