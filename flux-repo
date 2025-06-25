@@ -1,3 +1,0 @@
-flux create source git rsyslog \
-  --url=ssh://git@github.com/ninjatec/syslogtoloki \
-  --branch=main 
