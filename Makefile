@@ -1,5 +1,5 @@
 NAME := rsyslog
-VERSION := 1.0.13
+VERSION := 1.0.14
 
 build:
 	DOCKER_BUILDKIT=1 docker build -t ninjatec/rsyslog:$(VERSION) .
