@@ -4,7 +4,7 @@ metadata:
   name: rsyslog-pv-claim
   namespace: monitoring
 spec:
-  storageClassName: default-retain
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
