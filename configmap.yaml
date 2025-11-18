@@ -32,19 +32,19 @@ data:
                 labels:
                   job: varlogs
                   __path__: /var/log/{syslog,messages,*.log}
-        pipeline_stages:
-          - regex:
-              expression: '^(?P<timestamp>\w+\s+\d+\s+\d+:\d+:\d+)\s+(?P<hostname>\S+)\s+(?P<appname>\S+)(?:\[(?P<procid>\d+)\])?\:\s*(?P<message>.*)'
-          - labels:
-              # RFC 5424 compliant syslog labels
-              hostname:
-              appname:
-              procid:
-          - timestamp:
-              source: timestamp
-              format: 'Jan 02 15:04:05'
-          - output:
-              source: message
+            pipeline_stages:
+              - regex:
+                  expression: '^(?P<timestamp>\w+\s+\d+\s+\d+:\d+:\d+)\s+(?P<hostname>\S+)\s+(?P<appname>\S+)(?:\[(?P<procid>\d+)\])?\:\s*(?P<message>.*)'
+              - labels:
+                  # RFC 5424 compliant syslog labels
+                  hostname:
+                  appname:
+                  procid:
+              - timestamp:
+                  source: timestamp
+                  format: 'Jan 02 15:04:05'
+              - output:
+                  source: message
         clients:
           - url: http://grafana-loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
             external_labels:
