@@ -34,11 +34,12 @@ data:
                   __path__: /var/log/{syslog,messages,*.log}
             pipeline_stages:
               - regex:
-                  expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+\+\d{2}:\d{2})\s+(?P<hostname>\S+)\s+(?P<appname>\S+)\s+(?P<message>.*)'
+                  expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?\+\d{2}:\d{2})\s+(?P<hostname>\S+)\s+(?P<appname>\S+)(?:\[(?P<procid>\d+)\])?\s*:?\s*(?P<message>.*)'
               - labels:
                   # RFC 5424 compliant syslog labels
                   hostname:
                   appname:
+                  procid:
               - timestamp:
                   source: timestamp
                   format: RFC3339Nano
