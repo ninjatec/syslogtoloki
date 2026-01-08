@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: rsyslog
   namespace: monitoring
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: minecraft.lab.local
 spec:
   ports:
     - name: tcp
